@@ -28,7 +28,7 @@ function addTask(event){
     newTask.value = "";
     showTaskCount();
     handleData();
-   
+
 };
 
 // conplete
@@ -37,6 +37,7 @@ function handleTask (event){
        event.target.parentElement.remove();
        showTaskCount();
        handleData();
+       console.log(showTaskCount);
     }
     if(event.target.tagName === "LI"){
        event.target.classList.toggle("completed");
@@ -61,6 +62,7 @@ function showTaskCount(){
 };
 
 showTaskCount();
+
 
 // add data
 function handleData(){

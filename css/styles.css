@@ -3,6 +3,7 @@ body{
     margin: 0;
     box-sizing: border-box;
     color: white;
+    min-height: 200vh; 
 }
 :root{
 letter-spacing: 1.5px;
@@ -103,7 +104,143 @@ li i:hover {
     box-shadow: wheat;
 }
 
+.second-section {
+width: 900px;
+min-width: 500px;
+margin: 2rem auto;
+background-color: rgb(51,51,51);
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+gap: 1rem;
+padding: 1.5rem;
+border-radius: 20px;
+overflow: hidden;
+position: relative;
+border: 3px solid rgb(61,61,61);
+height: 100vh; /* Make it full screen height */
+background-color: lightblue; /* For testing visibility */
+}
 
 
+.left-container{
+    width: 40%;
+    background-color: rgb(236, 16, 16);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    animation: fadeDown 1.5s ease-out;
+}
+
+.right-container{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    animation: bounce 2s ease-out; /* Adds the bounce animation */
+    
+    /* background-color: rgb(223, 202, 202); */
+}
+
+.right-container img {
+    width: 400px;
+    height: 700px;
+    border-radius: 9px;
+    box-shadow: rgba(1, 0, 0, 2, 1);
+    /* animation: bounce 2s infinite; Adds the bounce animation */
+}
+ 
+
+.right-container .card-cover {
+    width: 400px;
+    height: 700px;
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping into multiple rows */
+    overflow: hidden;
+    /* background-color: rgb(25, 81, 155);     */
+    position: absolute;
+    opacity: 0.3;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    
+}
 
 
+.card-cover .sub-card1 .sub-card2 {
+    width: 50%;
+    /* background-color: rgb(197, 74, 160);     */
+    opacity: 0.1;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card-cover .sub-card1 {
+    height: 420px;
+    width: 50%;
+    cursor: pointer;
+    
+}
+.card-cover .sub-card2 {
+    height: 420px;
+    width: 50%;
+    cursor: pointer;
+    
+}
+.sub-card2:hover{
+    background-color: rgb(220, 223, 83);
+    opacity: 0.8;
+}
+.sub-card1:hover{
+    background-color: rgb(189, 181, 192);
+    opacity: 0.8;
+}
+
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Animation definition */
+@keyframes fadeDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Default hidden state */
+.second-section {
+    opacity: 0; /* Hidden by default */
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition for non-animated fallback */
+}
+
+/* Animation when the element is visible */
+.second-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeDown 1.5s ease-out;
+}
